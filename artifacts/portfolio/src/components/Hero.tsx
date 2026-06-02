@@ -36,7 +36,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed font-sans"
           >
-            I'm Elias Thorne. I craft resilient backend systems and fluid interfaces 
+            I'm Ray-shaun Adokwei Mensah. I craft resilient backend systems and fluid interfaces 
             for the modern web. Obsessed with performance, architecture, and the invisible details.
           </motion.p>
 

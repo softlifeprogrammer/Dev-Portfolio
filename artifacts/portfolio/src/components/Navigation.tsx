@@ -33,7 +33,7 @@ export function Navigation() {
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="text-xl font-serif font-bold tracking-tight text-primary">
-          Elias.dev
+          Ray-shaun.dev
         </a>
 
         <nav className="hidden md:flex items-center gap-8">

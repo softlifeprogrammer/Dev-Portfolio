@@ -45,7 +45,7 @@ export function Contact() {
       
       <div className="absolute bottom-8 left-0 right-0 text-center">
         <p className="text-sm text-muted-foreground font-mono">
-          © {new Date().getFullYear()} Elias Thorne. Crafted with precision.
+          © {new Date().getFullYear()} Ray-shaun Adokwei Mensah. Crafted with precision.
         </p>
       </div>
     </section>
