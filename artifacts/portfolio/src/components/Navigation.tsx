@@ -1,25 +1,80 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link, useLocation } from "wouter";
+
+interface NavLink {
+  name: string;
+  href: string;
+  page?: boolean;
+}
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { theme, setTheme } = useTheme();
+  const [location] = useLocation();
+
+  const onBlogPage = location === "/blog";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
 
-  const links = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const links: NavLink[] = onBlogPage
+    ? [{ name: "Portfolio", href: "/", page: true }]
+    : [
+        { name: "About", href: "#about" },
+        { name: "Skills", href: "#skills" },
+        { name: "Projects", href: "#projects" },
+        { name: "Contact", href: "#contact" },
+        { name: "Blog", href: "/blog", page: true },
+      ];
+
+  function NavAnchor({ link, mobile }: { link: NavLink; mobile?: boolean }) {
+    const base = mobile
+      ? "text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+      : "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+
+    if (link.page) {
+      return (
+        <Link
+          href={link.href}
+          onClick={() => setMenuOpen(false)}
+          className={`${base} ${location === link.href ? "text-primary" : ""}`}
+          data-testid={`link-${mobile ? "mobile-" : ""}${link.name.toLowerCase()}`}
+        >
+          {link.name}
+        </Link>
+      );
+    }
+    return (
+      <a
+        href={link.href}
+        onClick={() => setMenuOpen(false)}
+        className={base}
+        data-testid={`link-${mobile ? "mobile-" : ""}${link.name.toLowerCase()}`}
+      >
+        {link.name}
+      </a>
+    );
+  }
+
+  const ThemeToggle = () => (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="rounded-full"
+    >
+      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
 
   return (
     <>
@@ -34,45 +89,21 @@ export function Navigation() {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <a href="#" className="text-xl font-serif font-bold tracking-tight text-primary">
+          <Link href="/" className="text-xl font-serif font-bold tracking-tight text-primary">
             Ray-shaun.dev
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.name}
-              </a>
+              <NavAnchor key={link.name} link={link} />
             ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full"
-            >
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+            <ThemeToggle />
           </nav>
 
           {/* Mobile controls */}
           <div className="flex md:hidden items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full"
-            >
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
@@ -100,15 +131,7 @@ export function Navigation() {
           >
             <nav className="container mx-auto px-6 py-6 flex flex-col gap-5">
               {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  data-testid={`link-mobile-${link.name.toLowerCase()}`}
-                >
-                  {link.name}
-                </a>
+                <NavAnchor key={link.name} link={link} mobile />
               ))}
             </nav>
           </motion.div>
