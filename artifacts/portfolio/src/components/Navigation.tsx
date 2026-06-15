@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Download } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link, useLocation } from "wouter";
 
@@ -94,10 +94,19 @@ export function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {links.map((link) => (
               <NavAnchor key={link.name} link={link} />
             ))}
+            <a
+              href="/cv.pdf"
+              download="Ray-shaun-Adokwei-Mensah-CV.pdf"
+              data-testid="link-download-cv"
+              className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-1.5 rounded-full border border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+            >
+              <Download className="w-3.5 h-3.5" />
+              CV
+            </a>
             <ThemeToggle />
           </nav>
 
@@ -133,6 +142,16 @@ export function Navigation() {
               {links.map((link) => (
                 <NavAnchor key={link.name} link={link} mobile />
               ))}
+              <a
+                href="/cv.pdf"
+                download="Ray-shaun-Adokwei-Mensah-CV.pdf"
+                onClick={() => setMenuOpen(false)}
+                data-testid="link-mobile-download-cv"
+                className="inline-flex items-center gap-2 text-lg font-medium text-primary"
+              >
+                <Download className="w-5 h-5" />
+                Download CV
+              </a>
             </nav>
           </motion.div>
         )}

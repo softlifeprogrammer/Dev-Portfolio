@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight, Terminal, Download } from "lucide-react";
 import { Button } from "./ui/button";
 
 const ROLES = ["Systems Engineer", "Full-Stack Developer", "Architecture Nerd", "Open Source Builder"];
@@ -81,7 +81,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap items-center gap-4"
           >
             <Button
               size="lg"
@@ -101,6 +101,17 @@ export function Hero() {
             >
               Contact Me
             </Button>
+            <a
+              href="/cv.pdf"
+              download="Ray-shaun-Adokwei-Mensah-CV.pdf"
+              data-testid="link-hero-download-cv"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors group"
+            >
+              <span className="w-8 h-8 rounded-full border border-border/60 group-hover:border-primary/50 flex items-center justify-center transition-colors">
+                <Download className="w-3.5 h-3.5" />
+              </span>
+              Download CV
+            </a>
           </motion.div>
         </div>
       </div>
