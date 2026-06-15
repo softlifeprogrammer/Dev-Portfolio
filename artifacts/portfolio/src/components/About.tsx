@@ -1,26 +1,68 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Code2, Database, Cpu } from "lucide-react";
 
+interface StatItem {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+const STATS: StatItem[] = [
+  { value: 8, suffix: "+", label: "Years experience" },
+  { value: 50, suffix: "+", label: "Projects shipped" },
+  { value: 15, suffix: "+", label: "Technologies" },
+  { value: 1200, suffix: "+", label: "Commits this year" },
+];
+
+function Counter({ value, suffix, label }: StatItem) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let frame = 0;
+    const totalFrames = Math.round(60 * 1.6);
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const tick = () => {
+      frame++;
+      const progress = easeOut(Math.min(frame / totalFrames, 1));
+      setCount(Math.round(value * progress));
+      if (frame < totalFrames) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  }, [inView, value]);
+
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-1">
+      <span className="text-3xl md:text-4xl font-serif font-semibold text-foreground tabular-nums">
+        {count.toLocaleString()}{suffix}
+      </span>
+      <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">{label}</span>
+    </div>
+  );
+}
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 export function About() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   return (
     <section className="py-32 relative" id="about">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        {/* Main two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
           <div className="lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -44,7 +86,7 @@ export function About() {
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6"
             variants={container}
             initial="hidden"
@@ -70,6 +112,20 @@ export function About() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Animated counter stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-b border-border/40"
+        >
+          {STATS.map((stat) => (
+            <Counter key={stat.label} {...stat} />
+          ))}
+        </motion.div>
+
       </div>
     </section>
   );
