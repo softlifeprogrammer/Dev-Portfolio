@@ -43,7 +43,8 @@ function TypingLabel() {
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="home">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-50 dark:opacity-20" />
+      {/* Ambient glow — sized and blurred progressively so mobile GPUs don't choke */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] sm:w-[480px] sm:h-[480px] lg:w-[800px] lg:h-[800px] bg-primary/20 rounded-full blur-[50px] sm:blur-[80px] lg:blur-[120px] pointer-events-none opacity-40 dark:opacity-15 will-change-transform" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl">

@@ -1,10 +1,16 @@
 import { lazy, Suspense } from "react";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { CustomCursor } from "@/components/CustomCursor";
 import { BackToTop } from "@/components/BackToTop";
 import { ChatBot } from "@/components/ChatBot";
+
+// On touch/mobile devices halve all animation durations to free up the main thread
+const isMobile =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+const mobileTransition = { type: "tween" as const, duration: 0.2, ease: "easeOut" };
 
 const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
 const Timeline = lazy(() => import("@/components/Timeline").then((m) => ({ default: m.Timeline })));
@@ -19,6 +25,10 @@ function SectionFallback() {
 
 export default function Portfolio() {
   return (
+    <MotionConfig
+      reducedMotion="user"
+      transition={isMobile ? mobileTransition : undefined}
+    >
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <CustomCursor />
 
@@ -85,5 +95,6 @@ export default function Portfolio() {
       <BackToTop />
       <ChatBot />
     </div>
+    </MotionConfig>
   );
 }
