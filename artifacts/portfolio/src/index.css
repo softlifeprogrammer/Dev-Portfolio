@@ -221,14 +221,49 @@
   * {
     @apply border-border;
   }
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
   body {
     @apply font-sans antialiased bg-background text-foreground transition-colors duration-300;
+    min-height: 100dvh;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif tracking-tight;
   }
   code {
     @apply font-mono;
+  }
+
+  /* Keyboard focus ring — visible only for keyboard users, not mouse clicks */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Minimum tap target for interactive elements on touch screens */
+  @media (pointer: coarse) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Respect user motion preferences — disable all framer-motion animations */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

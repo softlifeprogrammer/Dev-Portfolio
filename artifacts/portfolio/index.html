@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Developer Portfolio</title>
-    <meta name="description" content="Developer Portfolio — built on Replit. Update this description to reflect the app." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ray-shaun Adokwei Mensah — Systems Engineer &amp; Developer</title>
+    <meta name="description" content="Ray-shaun Adokwei Mensah is a systems engineer and full-stack developer specialising in backend architecture, data pipelines, Power BI dashboards, and modern web applications." />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Developer Portfolio" />
-    <meta property="og:description" content="Developer Portfolio — built on Replit. Update this description to reflect the app." />
+    <meta name="author" content="Ray-shaun Adokwei Mensah" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ray-shaun Adokwei Mensah — Systems Engineer &amp; Developer" />
+    <meta property="og:description" content="Systems engineer and full-stack developer specialising in backend architecture, data pipelines, Power BI, and modern web apps." />
+    <meta property="og:image" content="/opengraph.jpg" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Developer Portfolio" />
-    <meta name="twitter:description" content="Developer Portfolio — built on Replit. Update this description to reflect the app." />
+    <meta name="twitter:title" content="Ray-shaun Adokwei Mensah — Systems Engineer &amp; Developer" />
+    <meta name="twitter:description" content="Systems engineer and full-stack developer specialising in backend architecture, data pipelines, Power BI, and modern web apps." />
+    <meta name="twitter:image" content="/opengraph.jpg" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts — preconnect first, then the actual stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ray-shaun Adokwei Mensah",
+      "jobTitle": "Systems Engineer",
+      "description": "Full-stack developer specialising in backend systems, data analysis, Power BI dashboards, and modern web applications.",
+      "knowsAbout": ["Web Development", "Python", "Power BI", "Data Analysis", "TypeScript", "React", "Node.js"]
+    }
+    </script>
+
+    <!-- Prevent dark-mode flash of unstyled content -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem("portfolio-theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark) || !stored) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
