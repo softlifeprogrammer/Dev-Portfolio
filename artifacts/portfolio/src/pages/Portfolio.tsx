@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { CustomCursor } from "@/components/CustomCursor";
 import { BackToTop } from "@/components/BackToTop";
+import { ChatBot } from "@/components/ChatBot";
 
 const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
 const Timeline = lazy(() => import("@/components/Timeline").then((m) => ({ default: m.Timeline })));
@@ -82,6 +83,7 @@ export default function Portfolio() {
       </main>
 
       <BackToTop />
+      <ChatBot />
     </div>
   );
 }
