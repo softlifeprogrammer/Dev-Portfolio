@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Terminal, Download } from "lucide-react";
 import { Button } from "./ui/button";
 
-const ROLES = ["Systems Engineer", "Full-Stack Developer", "Architecture Nerd", "Open Source Builder"];
+const ROLES = ["IT Support Specialist", "Software Engineer", "Web Developer", "Data Analyst"];
 
 function TypingLabel() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -64,8 +64,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium leading-[1.1] tracking-tight mb-8"
           >
-            Building software <br className="hidden md:block" />
-            that feels <span className="italic text-muted-foreground">alive</span>.
+            Reliable systems, <br className="hidden md:block" />
+            clean code, <span className="italic text-muted-foreground">real results</span>.
           </motion.h1>
 
           <motion.p
@@ -74,8 +74,9 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed font-sans"
           >
-            I'm Ray-shaun Adokwei Mensah. I craft resilient backend systems and fluid interfaces
-            for the modern web. Obsessed with performance, architecture, and the invisible details.
+            I'm Ray-shaun Adokwei Mensah — IT Support Specialist and Software Engineer based in
+            Tema, Ghana. I build web applications, analyse data, and keep systems secure and
+            running smoothly.
           </motion.p>
 
           <motion.div

@@ -13,49 +13,58 @@ interface TimelineEvent {
 
 const events: TimelineEvent[] = [
   {
-    year: "2024",
-    title: "Senior Systems Engineer",
-    org: "Meridian Labs",
+    year: "2026",
+    title: "Control Room Officer",
+    org: "Ghana Steel Ltd, Tema",
     type: "work",
     description:
-      "Leading architecture of a distributed data pipeline handling 2M+ events/day. Introduced Rust microservices that reduced P99 latency by 62% and cut infrastructure costs significantly.",
-    tags: ["Rust", "Kafka", "PostgreSQL", "Kubernetes"],
+      "Monitor CCTV surveillance systems and control room operations to ensure site security. Troubleshoot CCTV cameras, network devices, and related IT equipment. Monitor network connectivity and maintain incident logs while coordinating with security personnel during system alerts.",
+    tags: ["CCTV", "Networking", "IT Support", "Incident Management"],
   },
   {
-    year: "2022",
-    title: "Full-Stack Engineer",
-    org: "Axiom Technologies",
+    year: "2024–2025",
+    title: "National Service Personnel",
+    org: "Kpone-Katamanso Metropolitan Assembly",
     type: "work",
     description:
-      "Built and maintained a SaaS platform serving 40k+ users. Owned the React frontend, Node.js API layer, and all PostgreSQL schema migrations end-to-end.",
-    tags: ["React", "Node.js", "TypeScript", "AWS"],
+      "Configured and networked office systems by installing routers, switches, and cabling across multiple workstations. Diagnosed and resolved technical issues for 35+ devices, reducing downtime by 25%. Conducted vulnerability scans identifying and mitigating 95% of potential security risks. Provided IT training to staff, improving in-house technical capabilities.",
+    tags: ["Networking", "Vulnerability Scanning", "Hardware Support", "IT Training"],
+  },
+  {
+    year: "2024",
+    title: "B.Sc. Information Technology Management",
+    org: "University of Professional Studies, Accra",
+    type: "edu",
+    description:
+      "Graduated with a B.Sc. in Information Technology Management. Coursework covered Programming, Web Development, Database Management, Computer Networks, Hardware Systems, Software Quality Management, and Automation of Business Processes. Final year project: built a fitness management platform for Sel Fitness Club.",
+    tags: ["Programming", "Web Development", "Databases", "Networking"],
+  },
+  {
+    year: "2024",
+    title: "Final Year Project — Sel Fitness Club",
+    org: "University of Professional Studies",
+    type: "award",
+    description:
+      "Designed and developed a full fitness management platform for Sel Fitness Club as my final year capstone project. The platform handles member registration, class scheduling, and session tracking, with a clean web interface built using HTML, CSS, and JavaScript.",
+    tags: ["HTML", "CSS", "JavaScript", "Web Development"],
+  },
+  {
+    year: "2023",
+    title: "Junior Computer Support Specialist",
+    org: "NAD Security Ltd, Accra",
+    type: "work",
+    description:
+      "Resolved hardware, software, and printer issues, improving operational efficiency. Planned and undertook scheduled maintenance and upgrades on company systems. Conducted vulnerability scans, identifying and mitigating potential security risks across company infrastructure.",
+    tags: ["IT Support", "Hardware", "Vulnerability Scanning", "Maintenance"],
   },
   {
     year: "2020",
-    title: "GitHub Stars Recognition",
-    org: "Open Source",
-    type: "award",
-    description:
-      "Received GitHub Stars recognition for contributions to open-source tooling in the Node.js ecosystem. Top 200 contributors globally that year.",
-    tags: ["Open Source", "Node.js", "Community"],
-  },
-  {
-    year: "2018",
-    title: "Backend Engineer",
-    org: "Cobalt Digital",
-    type: "work",
-    description:
-      "First engineering hire. Architected the initial backend from the ground up — REST API, auth system, background workers, and automated CI/CD pipeline.",
-    tags: ["Express", "MongoDB", "Docker", "CI/CD"],
-  },
-  {
-    year: "2016",
-    title: "BSc Computer Science",
-    org: "University of Ghana",
+    title: "Started B.Sc. — Information Technology Management",
+    org: "University of Professional Studies, Accra",
     type: "edu",
     description:
-      "Graduated First Class Honours. Final project: a real-time collaborative code editor built with WebSockets and operational transformation algorithms.",
-    tags: ["Algorithms", "Systems Design", "Web"],
+      "Began a four-year programme in Information Technology Management, building a strong foundation in programming, web development, database systems, and computer networks.",
+    tags: ["Python", "JavaScript", "SQL", "Networking"],
   },
 ];
 

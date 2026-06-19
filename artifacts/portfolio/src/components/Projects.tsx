@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
-type Category = "All" | "Web Development" | "Python" | "Power BI" | "Data Analysis";
+type Category = "All" | "Web Development" | "Python" | "IT & Security" | "Data Analysis";
 
 interface Project {
   title: string;
@@ -17,94 +17,84 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: "ShopFlow",
+    title: "Sel Fitness Club Platform",
     description:
-      "Full-stack e-commerce platform with real-time inventory, Stripe checkout, and an admin dashboard. Built on Next.js with server components and a PostgreSQL backend.",
-    tags: ["Next.js", "PostgreSQL", "Stripe", "Tailwind"],
+      "Final year capstone project. A full fitness management web application for Sel Fitness Club, covering member registration, class scheduling, and session tracking. Built from scratch with HTML, CSS, and JavaScript.",
+    tags: ["HTML", "CSS", "JavaScript", "Web App"],
     category: "Web Development",
     link: "#",
     github: "#",
     accent: "from-blue-500/10 to-cyan-500/5",
   },
   {
-    title: "Syntax.ui",
+    title: "Developer Portfolio",
     description:
-      "A comprehensive headless UI library for highly interactive web applications. Focuses on accessibility, keyboard navigation, and complex animation states.",
-    tags: ["TypeScript", "React", "Framer Motion", "A11y"],
+      "This very site. A performant, fully responsive portfolio with dark/light mode, animated sections, an AI chatbot assistant, visitor counter, tech blog, and interactive career timeline. Built with React, Vite, and Tailwind.",
+    tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     category: "Web Development",
     link: "#",
     github: "#",
     accent: "from-violet-500/10 to-fuchsia-500/5",
   },
   {
-    title: "DataCrawl",
+    title: "Python Automation Scripts",
     description:
-      "Async Python pipeline that scrapes, cleans, and stores structured data from multiple web sources at scale. Uses Playwright for JS-rendered pages and Pydantic for validation.",
-    tags: ["Python", "Playwright", "Pydantic", "PostgreSQL"],
+      "A collection of Python scripts written during certification study and personal projects — including file organizers, web scrapers, and data-cleaning utilities using pandas and the standard library.",
+    tags: ["Python", "pandas", "Automation", "Web Scraping"],
     category: "Python",
     link: "#",
     github: "#",
     accent: "from-yellow-500/10 to-amber-500/5",
   },
   {
-    title: "ML Monitor",
+    title: "IT Network Setup — KKMA",
     description:
-      "Lightweight Python service for tracking model drift, feature importance shifts, and prediction distributions in production ML pipelines. Integrates with Grafana for alerting.",
-    tags: ["Python", "scikit-learn", "FastAPI", "Grafana"],
-    category: "Python",
+      "Designed and implemented a full office network at the Kpone-Katamanso Metropolitan Assembly during national service. Installed routers, switches, and cabling to enable seamless connectivity across multiple workstations.",
+    tags: ["Networking", "Routers", "Switches", "Cabling"],
+    category: "IT & Security",
     link: "#",
     github: "#",
     accent: "from-green-500/10 to-emerald-500/5",
   },
   {
-    title: "Executive Sales Dashboard",
+    title: "Vulnerability Assessment",
     description:
-      "Interactive Power BI report delivering real-time KPIs, regional breakdowns, and YoY trend analysis for a multinational retail client with 200+ stores.",
-    tags: ["Power BI", "DAX", "SQL Server", "Power Query"],
-    category: "Power BI",
+      "Conducted in-depth vulnerability scans across 35+ company devices at KKMA and NAD Security Ltd, identifying and mitigating 95% of potential security risks using professional scanning tools and command-line diagnostics.",
+    tags: ["Security", "Vulnerability Scanning", "IT Audit", "CLI"],
+    category: "IT & Security",
     link: "#",
     github: "#",
-    accent: "from-orange-500/10 to-red-500/5",
+    accent: "from-red-500/10 to-rose-500/5",
   },
   {
-    title: "Supply Chain Visibility",
+    title: "Excel & Power BI Dashboard",
     description:
-      "End-to-end Power BI solution tracking supplier lead times, stock levels, and logistics bottlenecks across 12 warehouses and 4 continents.",
-    tags: ["Power BI", "DAX", "Azure Synapse", "Power Automate"],
-    category: "Power BI",
+      "Interactive data dashboard built as part of the NASPA 'Data Analysis with Excel and Power BI' certification. Visualises KPIs, trend lines, and category breakdowns from structured datasets using Power Query and DAX.",
+    tags: ["Power BI", "Excel", "DAX", "Power Query"],
+    category: "Data Analysis",
     link: "#",
     github: "#",
-    accent: "from-rose-500/10 to-pink-500/5",
+    accent: "from-orange-500/10 to-amber-500/5",
   },
   {
-    title: "Market Pulse",
+    title: "SQL Data Analysis",
     description:
-      "Financial data analysis toolkit surfacing equity momentum signals. Combines pandas, technical indicators, and automated weekly PDF reports delivered via email.",
-    tags: ["Python", "pandas", "NumPy", "Matplotlib"],
+      "Hands-on SQL projects completed during the NASPA SQL Database Crash Course — covering complex queries, joins, aggregations, and stored procedures on real-world datasets to surface actionable insights.",
+    tags: ["SQL", "Databases", "Data Analysis", "Queries"],
     category: "Data Analysis",
     link: "#",
     github: "#",
     accent: "from-teal-500/10 to-cyan-500/5",
   },
-  {
-    title: "Aura Metrics",
-    description:
-      "High-performance observability pipeline ingesting and querying millions of events per day. Features real-time anomaly detection and a WebGL-powered live dashboard.",
-    tags: ["Rust", "React", "ClickHouse", "WebGL"],
-    category: "Data Analysis",
-    link: "#",
-    github: "#",
-    accent: "from-primary/10 to-amber-500/5",
-  },
 ];
 
-const CATEGORIES: Category[] = ["All", "Web Development", "Python", "Power BI", "Data Analysis"];
+const CATEGORIES: Category[] = ["All", "Web Development", "Python", "IT & Security", "Data Analysis"];
 
 const CATEGORY_LABELS: Record<Category, string> = {
   All: "All",
   "Web Development": "Web Dev",
   Python: "Python",
-  "Power BI": "Power BI",
+  "IT & Security": "IT & Security",
   "Data Analysis": "Data Analysis",
 };
 
@@ -225,7 +215,7 @@ export function Projects() {
                       data-testid={`button-demo-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       <ExternalLink className="w-3 h-3 mr-1.5" />
-                      Live Demo
+                      View Details
                     </Button>
                     <Button
                       variant="ghost"

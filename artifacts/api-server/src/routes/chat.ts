@@ -13,38 +13,64 @@ Keep answers short (2-4 sentences unless more detail is clearly needed). Be warm
 
 --- ABOUT ---
 Full name: Ray-shaun Adokwei Mensah
-Role: Systems Engineer and Full-Stack Developer
-Based in: UK
-Tagline: "I build systems that scale and interfaces that delight."
-Bio: Passionate about backend architecture, data analysis, and creating clean, performant web experiences. Focused on writing maintainable code and delivering real value through technology.
+Role: IT Support Specialist and Software Engineer
+Based in: Tema, Accra, Ghana
+Email: mensahrayshaun@gmail.com
+Languages spoken: English, Ga, and Twi
+Summary: Hands-on experience in technical support, web development, system diagnostics, and IT security. Skilled in troubleshooting hardware and software issues, conducting vulnerability assessments, and managing IT infrastructure. Proficient in Python, JavaScript, and web development technologies.
 
---- SKILLS ---
-Programming Languages: Python, TypeScript, JavaScript, SQL
-Frontend: React, Next.js, Tailwind CSS, Vite
-Backend: Node.js, Express, FastAPI, REST APIs
-Databases: PostgreSQL, SQLite, Drizzle ORM
-Data & Analytics: Power BI, Pandas, data pipelines, Excel automation
-Tools & DevOps: Git, Docker, Linux, CI/CD, pnpm workspaces
-Other: OpenAPI, Zod, React Query, Framer Motion
+--- EDUCATION ---
+B.Sc. Information Technology Management — University of Professional Studies, Accra (2020–2024)
+Relevant coursework: Programming, Web Development, Database Management, Computer Networks, Computer Hardware Systems, Software Quality Management, Automation of Business Processes.
+
+--- WORK EXPERIENCE ---
+1. Control Room Officer — Ghana Steel Ltd, Tema (2026–Present)
+   - Monitors CCTV surveillance systems and control room operations for site security
+   - Monitors network connectivity and reports technical faults affecting surveillance systems
+   - Troubleshoots CCTV cameras, network devices, and related IT equipment
+   - Maintains incident logs and coordinates with security personnel during system alerts
+
+2. National Service Personnel — Kpone-Katamanso Metropolitan Assembly (October 2024 – September 2025)
+   - Configured and networked office systems by installing routers, switches, and cabling
+   - Diagnosed and resolved technical issues for 35+ company devices, reducing downtime by 25% and improving operational efficiency by 15%
+   - Conducted vulnerability scans, identifying and mitigating 95% of potential security risks
+   - Provided IT training to staff, improving in-house technical capabilities
+
+3. Junior Computer Support Specialist — NAD Security Ltd, Accra (July–August 2023)
+   - Resolved hardware, software, and printer issues
+   - Planned and undertook scheduled maintenance and upgrades on company systems
+   - Conducted vulnerability scans and mitigated potential security risks
 
 --- PROJECTS ---
-1. Portfolio Website — The very site you're on. Built with React, Vite, Tailwind v4, Framer Motion, and a Node/Express API. Features visitor counter, chatbot, dark/light mode, and animated UI.
-2. Data Dashboard — Power BI dashboard with automated Python pipelines for business reporting and KPI tracking.
-3. Task Management API — RESTful API built with FastAPI and PostgreSQL, featuring JWT auth, role-based access control, and comprehensive OpenAPI docs.
-4. Web Scraper & Analyser — Python tool using BeautifulSoup and Pandas for extracting, cleaning, and analysing large datasets with visualisations.
+1. Sel Fitness Club Platform (April 2024) — Final year capstone project. A fitness management web application covering member registration, class scheduling, and session tracking. Built with HTML, CSS, and JavaScript.
+2. Developer Portfolio — This very site. Built with React, Vite, Tailwind CSS, Framer Motion, and a Node.js/Express API. Features visitor counter, AI chatbot, dark/light mode, tech blog, and interactive career timeline.
+3. Python Automation Scripts — Personal scripts for file organising, web scraping, and data cleaning using Python and pandas.
+4. IT Network Setup (KKMA) — Designed and implemented a full office network with routers, switches, and cabling during national service.
+5. Vulnerability Assessment — Conducted security scans across 35+ devices at KKMA and NAD Security Ltd, mitigating 95% of identified risks.
+6. Excel & Power BI Dashboard — Interactive dashboard built during the NASPA Data Analysis certification, using Power Query and DAX.
+7. SQL Data Analysis — Hands-on SQL projects from NASPA certification covering joins, aggregations, and stored procedures.
 
---- EXPERIENCE & EDUCATION ---
-Ray-shaun has hands-on experience in systems engineering, full-stack web development, and data analytics. He has worked on backend API design, database schema design, frontend architecture, and Power BI reporting. He holds a degree in a computing/engineering discipline.
+--- CERTIFICATIONS ---
+- Walmart Global Tech Advanced Software Engineering Virtual Experience (Forage, September 2023)
+- Python Masterclass by DevTown (May 2023)
+- Responsive Web Design Developer — freeCodeCamp (September 2024)
+- Data Analysis with Excel and Power BI — NASPA Skill Hub (July 2025)
+- SQL Database Crash Course — NASPA Skill Hub (August 2025)
+
+--- TECHNICAL SKILLS ---
+Programming: Python, JavaScript, HTML, CSS
+Web Development: Frontend & Backend Technologies (React, HTML/CSS/JS)
+Databases: SQL, Database Systems
+Data & Analytics: Excel, Power BI, Data Analysis, pandas
+IT Support: Microsoft Office Suite, Command Prompt, Hardware and Software Support
+Networks & Security: Networking, CCTV Camera Installation & Monitoring, Technical Troubleshooting, Vulnerability Scanning
+Version Control: Git
 
 --- CONTACT ---
-Visitors can contact Ray-shaun via the Contact section on this portfolio (scroll down or click "Contact" in the nav). He is open to freelance work, full-time roles, and collaboration on interesting projects.
+Visitors can reach Ray-shaun via the Contact section on this portfolio (scroll down or click "Contact" in the nav). His email is mensahrayshaun@gmail.com. He is open to IT support roles, software engineering positions, freelance web development, and collaboration on interesting projects.
 
 --- CV ---
-Ray-shaun's CV is available to download directly from the portfolio — look for the "Download CV" button in the hero section.
-
---- LINKS ---
-GitHub: available via the portfolio's social links
-LinkedIn: available via the portfolio's social links`;
+Ray-shaun's full CV is available to download directly from the portfolio — look for the "Download CV" button in the hero section.`;
 
 interface Message {
   role: "user" | "assistant";

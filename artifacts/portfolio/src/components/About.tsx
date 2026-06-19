@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Code2, Database, Cpu } from "lucide-react";
+import { Monitor, ShieldCheck, BarChart2 } from "lucide-react";
 
 interface StatItem {
   value: number;
@@ -9,10 +9,10 @@ interface StatItem {
 }
 
 const STATS: StatItem[] = [
-  { value: 8, suffix: "+", label: "Years experience" },
-  { value: 50, suffix: "+", label: "Projects shipped" },
-  { value: 15, suffix: "+", label: "Technologies" },
-  { value: 1200, suffix: "+", label: "Commits this year" },
+  { value: 4, suffix: "+", label: "Years in tech" },
+  { value: 35, suffix: "+", label: "Devices supported" },
+  { value: 5, suffix: "+", label: "Certifications" },
+  { value: 95, suffix: "%", label: "Security risks mitigated" },
 ];
 
 function Counter({ value, suffix, label }: StatItem) {
@@ -74,13 +74,20 @@ export function About() {
               <div className="h-1 w-20 bg-primary mb-8 rounded-full" />
               <div className="space-y-6 text-muted-foreground text-lg font-sans leading-relaxed">
                 <p>
-                  I approach software engineering like traditional craftsmanship. It's not just about getting it to work; it's about building it right. Every function, every database query, every animation curve matters.
+                  I'm an IT Support Specialist and Software Engineer with hands-on experience in
+                  technical support, web development, system diagnostics, and IT security. I hold a
+                  B.Sc. in Information Technology Management from the University of Professional
+                  Studies, Accra.
                 </p>
                 <p>
-                  With over 8 years of experience building scalable applications, I've learned that the best code is the code you don't have to write, and the best architectures are the ones that quietly get out of the way.
+                  During my national service at the Kpone-Katamanso Metropolitan Assembly, I
+                  diagnosed and resolved issues across 35+ devices, reduced downtime by 25%, and
+                  mitigated 95% of identified security risks through in-depth vulnerability scans.
                 </p>
                 <p>
-                  When I'm not writing code, I'm analyzing distributed systems, roasting coffee, or building mechanical keyboards.
+                  Outside of work I'm building web projects, exploring data analysis with Python
+                  and Power BI, and continuously adding to my skill set through certifications.
+                  Fluent in English, Ga, and Twi.
                 </p>
               </div>
             </motion.div>
@@ -94,21 +101,21 @@ export function About() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group">
-              <Code2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
-              <h3 className="text-xl font-medium mb-3">Frontend Architecture</h3>
-              <p className="text-muted-foreground">Building fluid, state-driven interfaces that feel instant and natural. React, TypeScript, and fine-tuned animations.</p>
+              <Monitor className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <h3 className="text-xl font-medium mb-3">Web Development</h3>
+              <p className="text-muted-foreground">Building responsive frontends and backend APIs with Python, JavaScript, HTML, and CSS. Focused on clean, maintainable code that solves real problems.</p>
             </motion.div>
 
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group md:mt-12">
-              <Database className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
-              <h3 className="text-xl font-medium mb-3">Data Systems</h3>
-              <p className="text-muted-foreground">Designing resilient database schemas and high-throughput APIs. Postgres, Redis, and optimized query structures.</p>
+              <ShieldCheck className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <h3 className="text-xl font-medium mb-3">IT Support & Security</h3>
+              <p className="text-muted-foreground">Diagnosing hardware and software faults, configuring networks, running vulnerability scans, and keeping systems secure and operational.</p>
             </motion.div>
 
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group md:-mt-12">
-              <Cpu className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
-              <h3 className="text-xl font-medium mb-3">Infrastructure</h3>
-              <p className="text-muted-foreground">Deploying and scaling containerized applications. Docker, CI/CD pipelines, and cloud-native architecture.</p>
+              <BarChart2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <h3 className="text-xl font-medium mb-3">Data Analysis</h3>
+              <p className="text-muted-foreground">Turning raw data into clear insights using Excel, Power BI, and Python. From building dashboards to automating reports and processes.</p>
             </motion.div>
           </motion.div>
         </div>
