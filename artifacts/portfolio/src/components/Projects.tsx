@@ -17,6 +17,36 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    title: "Movie Discovery App",
+    description:
+      "A web app for browsing and discovering movies — search by title, view details, ratings, and cast information. Fetches live data from a movie API and presents it in a clean, responsive interface.",
+    tags: ["HTML", "CSS", "JavaScript", "API Integration"],
+    category: "Web Development",
+    link: "https://replit.com/@mensahrayshaun1/Movie",
+    github: "#",
+    accent: "from-yellow-500/10 to-orange-500/5",
+  },
+  {
+    title: "Job Seeker Hub",
+    description:
+      "A job search and listing platform designed to help job seekers find opportunities. Features job listings, filtering by category or location, and a clean dashboard-style layout.",
+    tags: ["HTML", "CSS", "JavaScript", "Web App"],
+    category: "Web Development",
+    link: "https://replit.com/@mensahrayshaun1/Job-Seeker-Hub",
+    github: "#",
+    accent: "from-green-500/10 to-teal-500/5",
+  },
+  {
+    title: "E-Commerce Suite",
+    description:
+      "A fully functional e-commerce web application with product listings, a shopping cart, and checkout flow. Designed with a modern storefront layout and interactive product browsing experience.",
+    tags: ["HTML", "CSS", "JavaScript", "E-Commerce"],
+    category: "Web Development",
+    link: "https://replit.com/@mensahrayshaun1/E-Commerce-Suite",
+    github: "#",
+    accent: "from-pink-500/10 to-rose-500/5",
+  },
+  {
     title: "Sel Fitness Club Platform",
     description:
       "Final year capstone project. A full fitness management web application for Sel Fitness Club, covering member registration, class scheduling, and session tracking. Built from scratch with HTML, CSS, and JavaScript.",
@@ -208,23 +238,46 @@ export function Projects() {
 
                   {/* Actions */}
                   <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="rounded-full text-xs h-8 px-4 border-border/60 hover:border-primary/50"
-                      data-testid={`button-demo-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1.5" />
-                      View Details
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-8 w-8"
-                      data-testid={`button-github-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    >
-                      <Github className="w-4 h-4" />
-                    </Button>
+                    {project.link !== "#" ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`button-demo-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="rounded-full text-xs h-8 px-4 border-border/60 hover:border-primary/50"
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1.5" />
+                          View Project
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="rounded-full text-xs h-8 px-4 border-border/60 hover:border-primary/50 opacity-50 cursor-default"
+                        data-testid={`button-demo-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                        disabled
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1.5" />
+                        View Details
+                      </Button>
+                    )}
+                    {project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`button-github-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        <Button variant="ghost" size="icon" className="rounded-full h-8 w-8">
+                          <Github className="w-4 h-4" />
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
