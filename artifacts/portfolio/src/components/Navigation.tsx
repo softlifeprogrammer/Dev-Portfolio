@@ -94,7 +94,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
             {links.map((link) => (
               <NavAnchor key={link.name} link={link} />
             ))}
@@ -119,7 +119,9 @@ export function Navigation() {
               onClick={() => setMenuOpen((o) => !o)}
               className="rounded-full"
               data-testid="button-mobile-menu"
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -138,7 +140,7 @@ export function Navigation() {
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="fixed top-[64px] left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/50 md:hidden"
           >
-            <nav className="container mx-auto px-6 py-6 flex flex-col gap-5">
+            <nav id="mobile-nav" className="container mx-auto px-6 py-6 flex flex-col gap-5" aria-label="Mobile navigation">
               {links.map((link) => (
                 <NavAnchor key={link.name} link={link} mobile />
               ))}

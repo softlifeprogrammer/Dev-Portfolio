@@ -201,6 +201,9 @@ export function ChatBot() {
         {open && (
           <motion.div
             key="chat-panel"
+            role="dialog"
+            aria-label="Portfolio assistant chat"
+            aria-modal="true"
             initial={{ opacity: 0, y: 24, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.95 }}
@@ -223,7 +226,12 @@ export function ChatBot() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 min-h-0 scroll-smooth">
+            <div
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-4 min-h-0 scroll-smooth"
+              aria-live="polite"
+              aria-label="Chat messages"
+              role="log"
+            >
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -235,6 +243,7 @@ export function ChatBot() {
                         ? "bg-primary/15"
                         : "bg-secondary"
                     }`}
+                    aria-hidden="true"
                   >
                     {msg.role === "assistant" ? (
                       <Bot className="w-4 h-4 text-primary" />
@@ -271,6 +280,7 @@ export function ChatBot() {
                   <button
                     key={s}
                     onClick={() => send(s)}
+                    aria-label={`Ask: ${s}`}
                     className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-primary hover:text-primary transition-colors bg-background"
                   >
                     {s}
