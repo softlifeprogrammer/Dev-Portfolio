@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+// TypingLabel intentionally has no framer-motion import — cursor blink is pure CSS
 import { ArrowRight, Terminal, Download } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -31,11 +32,7 @@ function TypingLabel() {
   return (
     <span className="font-mono text-sm text-primary tracking-wider uppercase">
       {displayed}
-      <motion.span
-        animate={{ opacity: [1, 1, 0, 0] }}
-        transition={{ repeat: Infinity, duration: 1, times: [0, 0.5, 0.5, 1], ease: "linear" }}
-        className="inline-block w-[2px] h-[13px] bg-primary ml-0.5 align-middle"
-      />
+      <span className="inline-block w-[2px] h-[13px] bg-primary ml-0.5 align-middle animate-[cursor-blink_1s_step-end_infinite]" />
     </span>
   );
 }
@@ -97,7 +94,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full text-base px-8 h-14 border-border/50 hover:bg-muted/50 backdrop-blur-sm"
+              className="rounded-full text-base px-8 h-14 border-border/50 hover:bg-muted/50"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="button-contact-me"
             >

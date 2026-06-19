@@ -216,6 +216,12 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.2);
 }
 
+/* Pure-CSS cursor blink — zero JS animation cost vs framer-motion repeat:Infinity */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -223,12 +229,15 @@
   html {
     font-size: 16px;
     scroll-behavior: smooth;
+    /* Prevent iOS pull-to-refresh & scroll-chaining jank */
+    overscroll-behavior-y: contain;
   }
   body {
     @apply font-sans antialiased bg-background text-foreground transition-colors duration-300;
     min-height: 100dvh;
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: contain;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif tracking-tight;
