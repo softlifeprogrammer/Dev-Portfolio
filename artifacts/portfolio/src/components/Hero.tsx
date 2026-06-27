@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex items-center gap-2 mb-6"
           >
-            <Terminal className="w-5 h-5 text-primary" />
+            <Terminal className="w-5 h-5 text-primary" aria-hidden="true" />
             <TypingLabel />
           </motion.div>
 
@@ -89,7 +89,7 @@ export function Hero() {
               data-testid="button-view-work"
             >
               View Work
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Button>
             <Button
               size="lg"

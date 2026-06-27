@@ -101,19 +101,19 @@ export function About() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group">
-              <Monitor className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <Monitor className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" aria-hidden="true" />
               <h3 className="text-xl font-medium mb-3">Web Development</h3>
               <p className="text-muted-foreground">Building responsive frontends and backend APIs with Python, JavaScript, HTML, and CSS. Focused on clean, maintainable code that solves real problems.</p>
             </motion.div>
 
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group md:mt-12">
-              <ShieldCheck className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <ShieldCheck className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" aria-hidden="true" />
               <h3 className="text-xl font-medium mb-3">IT Support & Security</h3>
               <p className="text-muted-foreground">Diagnosing hardware and software faults, configuring networks, running vulnerability scans, and keeping systems secure and operational.</p>
             </motion.div>
 
             <motion.div variants={item} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group md:-mt-12">
-              <BarChart2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
+              <BarChart2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" aria-hidden="true" />
               <h3 className="text-xl font-medium mb-3">Data Analysis</h3>
               <p className="text-muted-foreground">Turning raw data into clear insights using Excel, Power BI, and Python. From building dashboards to automating reports and processes.</p>
             </motion.div>

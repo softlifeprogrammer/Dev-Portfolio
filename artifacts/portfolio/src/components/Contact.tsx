@@ -21,7 +21,6 @@ export function Contact() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto"
         >
           <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-8">

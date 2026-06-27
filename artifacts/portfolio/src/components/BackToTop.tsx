@@ -26,7 +26,7 @@ export function BackToTop() {
           data-testid="button-back-to-top"
           aria-label="Back to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-5 h-5" aria-hidden="true" />
         </motion.button>
       )}
     </AnimatePresence>

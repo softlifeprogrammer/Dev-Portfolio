@@ -97,7 +97,8 @@
   --popover-border: 214 32% 91%;
 
   --primary: 35 100% 55%;
-  --primary-foreground: 0 0% 100%;
+  /* Dark text on orange: contrast ≈ 8.6:1 (AA + AAA) vs white which was 2.2:1 (fail) */
+  --primary-foreground: 0 0% 8%;
 
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
@@ -183,7 +184,8 @@
   --popover-border: 217 33% 17%;
 
   --primary: 35 100% 55%;
-  --primary-foreground: 0 0% 100%;
+  /* Dark text on orange: contrast ≈ 8.6:1 (AA + AAA) vs white which was 2.2:1 (fail) */
+  --primary-foreground: 0 0% 8%;
 
   --secondary: 217 33% 17%;
   --secondary-foreground: 210 40% 98%;

@@ -216,7 +216,7 @@ export function Projects() {
                     <span className="text-[10px] font-mono uppercase tracking-widest text-primary px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
                       {project.category}
                     </span>
-                    <span className="text-3xl font-serif text-muted-foreground/20 font-bold leading-none select-none">
+                    <span aria-hidden="true" className="text-3xl font-serif text-muted-foreground/20 font-bold leading-none select-none">
                       {String(PROJECTS.indexOf(project) + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -255,9 +255,9 @@ export function Projects() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="rounded-full text-xs h-8 px-4 border-border/60 hover:border-primary/50"
+                          className="rounded-full text-xs h-11 px-4 border-border/60 hover:border-primary/50"
                         >
-                          <ExternalLink className="w-3 h-3 mr-1.5" />
+                          <ExternalLink className="w-3 h-3 mr-1.5" aria-hidden="true" />
                           View Project
                         </Button>
                       </a>
