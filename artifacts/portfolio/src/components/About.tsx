@@ -53,7 +53,8 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  // No explicit transition — MotionConfig controls duration (0.2s on mobile, default on desktop)
+  show: { opacity: 1, y: 0 },
 };
 
 export function About() {
@@ -68,8 +69,7 @@ export function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
-            >
+              >
               <h2 className="text-3xl md:text-5xl font-serif mb-6">The Workshop</h2>
               <div className="h-1 w-20 bg-primary mb-8 rounded-full" />
               <div className="space-y-6 text-muted-foreground text-lg font-sans leading-relaxed">

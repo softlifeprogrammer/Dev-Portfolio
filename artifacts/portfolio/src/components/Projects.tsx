@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
+const isMobile =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+
 type Category = "All" | "Web Development" | "Python" | "IT & Security" | "Data Analysis";
 
 interface Project {
@@ -186,17 +190,20 @@ export function Projects() {
           })}
         </motion.div>
 
-        {/* Project grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <AnimatePresence mode="popLayout">
+        {/* Project grid — no layout/FLIP animations; opacity+transform only for mobile perf */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatePresence>
             {filtered.map((project, i) => (
               <motion.div
                 key={project.title}
-                layout
                 initial={{ opacity: 0, scale: 0.96, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.94, y: -8 }}
-                transition={{ duration: 0.3, delay: i * 0.06, ease: "easeOut" }}
+                transition={{
+                  duration: isMobile ? 0.15 : 0.3,
+                  delay: isMobile ? 0 : i * 0.06,
+                  ease: "easeOut",
+                }}
                 className="group relative rounded-2xl border border-border/50 bg-card overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                 data-testid={`card-project-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
@@ -283,7 +290,7 @@ export function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* Empty state */}
         <AnimatePresence>

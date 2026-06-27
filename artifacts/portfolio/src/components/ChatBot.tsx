@@ -211,7 +211,7 @@ export function ChatBot() {
             className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] max-h-[70dvh] flex flex-col rounded-2xl border border-border bg-card shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-card/90 backdrop-blur-sm">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-card">
               <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
                 <Bot className="w-5 h-5 text-primary" />
               </div>
@@ -292,7 +292,7 @@ export function ChatBot() {
             {/* Input */}
             <form
               onSubmit={handleSubmit}
-              className="flex items-center gap-2 px-4 py-3 border-t border-border bg-card/90 backdrop-blur-sm"
+              className="flex items-center gap-2 px-4 py-3 border-t border-border bg-card"
             >
               <input
                 ref={inputRef}

@@ -10,7 +10,7 @@ import { ChatBot } from "@/components/ChatBot";
 const isMobile =
   typeof window !== "undefined" &&
   window.matchMedia("(pointer: coarse)").matches;
-const mobileTransition = { type: "tween" as const, duration: 0.2, ease: "easeOut" };
+const mobileTransition = { type: "tween" as const, duration: 0.2, ease: "easeOut" as const };
 
 const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
 const Timeline = lazy(() => import("@/components/Timeline").then((m) => ({ default: m.Timeline })));
@@ -19,8 +19,8 @@ const Projects = lazy(() => import("@/components/Projects").then((m) => ({ defau
 const Testimonials = lazy(() => import("@/components/Testimonials").then((m) => ({ default: m.Testimonials })));
 const Contact = lazy(() => import("@/components/Contact").then((m) => ({ default: m.Contact })));
 
-function SectionFallback() {
-  return <div className="py-32 w-full" aria-hidden="true" />;
+function SectionFallback({ minHeight = "600px" }: { minHeight?: string }) {
+  return <div style={{ minHeight }} className="w-full" aria-hidden="true" />;
 }
 
 export default function Portfolio() {
@@ -46,12 +46,13 @@ export default function Portfolio() {
         {/* Hero is eager — it's above the fold and drives LCP */}
         <Hero />
 
-        {/* Everything below the fold is lazily loaded */}
-        <Suspense fallback={<SectionFallback />}>
+        {/* Everything below the fold is lazily loaded — minHeight matches each section's
+            approximate mobile height to prevent CLS (Cumulative Layout Shift) */}
+        <Suspense fallback={<SectionFallback minHeight="900px" />}>
           <About />
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback minHeight="700px" />}>
           <section className="py-32 relative" id="journey">
             <div className="container mx-auto px-6 md:px-12">
               <motion.div
@@ -75,19 +76,19 @@ export default function Portfolio() {
           </section>
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback minHeight="500px" />}>
           <Skills />
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback minHeight="1400px" />}>
           <Projects />
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback minHeight="600px" />}>
           <Testimonials />
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback minHeight="700px" />}>
           <Contact />
         </Suspense>
       </main>

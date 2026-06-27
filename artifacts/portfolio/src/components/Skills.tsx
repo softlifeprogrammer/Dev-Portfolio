@@ -29,6 +29,10 @@ const skills: { name: string; icon: SkillIcon; color: string }[] = [
   { name: "Linux", icon: SiLinux, color: "#FCC624" },
 ];
 
+const isTouch =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+
 export function Skills() {
   return (
     <section className="py-24 bg-muted/30" id="skills">
@@ -53,7 +57,7 @@ export function Skills() {
                 type: "spring",
                 stiffness: 100
               }}
-              whileHover={{ y: -5, scale: 1.05 }}
+              whileHover={isTouch ? undefined : { y: -5, scale: 1.05 }}
               className="flex items-center gap-3 px-6 py-4 rounded-full bg-card border border-border/50 shadow-sm cursor-default"
             >
               <skill.icon className="w-6 h-6" style={{ color: skill.color }} />

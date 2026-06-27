@@ -1,0 +1,151 @@
+Perform the following performance optimizations on my portfolio website. Preserve the existing UI, UX, branding, animations (where appropriate), and functionality. Focus only on the optimizations below.
+
+## Goal
+
+Improve the mobile Lighthouse Performance score from approximately 49 to 80+ while maintaining the current design and keeping Accessibility, Best Practices, and SEO scores at their current levels or better.
+
+---
+
+## Priority 1 — High Impact
+
+### 1. Optimize `Projects.tsx`
+
+This is the highest-priority optimization.
+
+Current issue:
+
+* The outer project grid uses `motion.div layout`.
+* Each individual project card also has the `layout` prop.
+* When a project filter is selected, Framer Motion measures and animates every card simultaneously, causing unnecessary CPU work on mobile devices.
+
+Tasks:
+
+* Remove unnecessary `layout` animations from the project cards.
+* Keep smooth filtering animations but use lighter-weight transitions (opacity, fade, or simple transforms) instead of full FLIP layout animations where possible.
+* Preserve the existing visual appearance and filtering functionality.
+
+---
+
+### 2. Improve `Portfolio.tsx` SectionFallback
+
+Current issue:
+
+* `SectionFallback` returns a placeholder with only `py-32` (about 256px tall).
+* Real sections are much taller (600–1200px).
+* When lazy-loaded sections appear, the page shifts downward, increasing Cumulative Layout Shift (CLS).
+
+Tasks:
+
+* Replace the fallback with placeholders that closely match the expected height of each section.
+* Prevent layout shifting while maintaining lazy loading.
+* Keep loading behavior visually clean.
+
+---
+
+### 3. Fix `About.tsx` Animation Timing
+
+Current issue:
+
+* The About section variants contain an explicit transition:
+  `transition: { duration: 0.6 }`
+* This overrides the global `MotionConfig` transition on mobile.
+
+Tasks:
+
+* Remove hardcoded transition durations where appropriate.
+* Allow `MotionConfig` to control animation timing.
+* Ensure mobile animations use the faster transition (approximately 0.2s).
+* Preserve desktop animation quality.
+
+---
+
+## Priority 2 — Medium Impact
+
+### 4. Optimize `vite.config.ts`
+
+Current issue:
+
+* `react-icons` is bundled into the main JavaScript chunk.
+
+Tasks:
+
+* Create a separate manual chunk for `react-icons`.
+* Reduce initial JavaScript parsing.
+* Keep the build configuration clean and maintainable.
+
+---
+
+### 5. Optimize `ChatBot.tsx`
+
+Current issue:
+
+* Two `backdrop-blur-sm` elements remain:
+
+  * Chat header
+  * Input footer
+* These create unnecessary GPU compositing layers when the chatbot is open on mobile.
+
+Tasks:
+
+* Replace blur with a lightweight alternative (solid or semi-transparent background).
+* Preserve the existing appearance as closely as possible.
+* Maintain readability.
+
+---
+
+### 6. Improve `Skills.tsx`
+
+Current issue:
+
+* Skill pills use:
+
+```tsx
+whileHover={{ y: -5, scale: 1.05 }}
+```
+
+On touch devices, tapping triggers hover animations that cause visual glitches.
+
+Tasks:
+
+* Disable hover animations on touch devices.
+* Keep hover effects on desktop only.
+* Preserve desktop interactions.
+
+---
+
+## Priority 3 — Low Impact
+
+### 7. Clean up `package.json`
+
+Current issue:
+There are unused dependencies that are no longer imported, including several unused Radix UI components and related packages.
+
+Tasks:
+
+* Identify dependencies that are not used anywhere in the project.
+* Remove only truly unused packages.
+* Ensure the application still builds successfully.
+* Do not remove dependencies that are dynamically imported or required at runtime.
+
+---
+
+## Validation
+
+After implementing the optimizations:
+
+1. Verify the application builds successfully.
+2. Ensure there are no TypeScript errors.
+3. Ensure there are no console errors.
+4. Verify all animations still function correctly.
+5. Verify project filtering still works.
+6. Verify chatbot functionality remains unchanged.
+7. Verify lazy loading still works.
+8. Confirm desktop UI remains visually identical.
+9. Confirm mobile interactions are smoother.
+
+Finally, provide a summary including:
+
+* Every file modified
+* What was changed in each file
+* Estimated Lighthouse improvements
+* Any recommendations for additional optimizations that were intentionally left unchanged.
