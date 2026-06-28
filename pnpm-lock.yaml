@@ -161,6 +161,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      openai:
+        specifier: ^4.98.0
+        version: 4.104.0(zod@3.25.76)
     devDependencies:
       prettier:
         specifier: ^3.8.3
