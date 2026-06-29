@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "pnpm --filter @workspace/portfolio run build && cp -r artifacts/portfolio/dist/public public",
+  "buildCommand": "pnpm --filter @workspace/portfolio run build",
   "outputDirectory": "public",
   "installCommand": "pnpm install",
   "rewrites": [

@@ -55,7 +55,12 @@ export default defineConfig(async ({ command }) => {
     },
     root: path.resolve(import.meta.dirname),
     build: {
-      outDir: path.resolve(import.meta.dirname, "dist/public"),
+      // On Vercel, output directly to the repo root's public/ so vercel.json
+      // outputDirectory: "public" resolves correctly without a cp step.
+      // Locally (Replit), output to dist/public as before (artifact.toml references that path).
+      outDir: process.env.VERCEL
+        ? path.resolve(import.meta.dirname, "../../public")
+        : path.resolve(import.meta.dirname, "dist/public"),
       emptyOutDir: true,
       rollupOptions: {
         output: {
